@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="assets/javascript/game.js" type="text/javascript"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <h1>Letter Guess: </h1>
+        <input type="text" id="letter"><br>
+        <button type="button" onclick="submitLetter()">Submit</button>
+        <button type="button" onclick="resetGame()">Reset Game</button>
+    </form>
+    <div class="container">
+        <h3>Wins: </h3><p id="num-win"></p>
+        <h3>Loss: </h3><p id="num-loss"></p>
+        <h3>Guessed Left: </h3><p id="guess-left"></p>
+        <h3>Your Guesses so far: </h3><p id="guessed-letter"></p>
+        <h3>Test: </h3><p id="test-console"></p><br>
+    </div>
+</body>
+</html>
