@@ -4,8 +4,25 @@ var numWin = 0;
 var numLoss = 0;
 var guessLeft = 10;
 var guessList = [];
-// Generate a randomized letter pick by computer
 
+// function to start new game without resetting all scores
+function nextGame () {
+  guessLeft = 10;
+  guessList = [];
+  document.getElementById("guess-left").innerHTML = guessLeft;
+  document.getElementById("guessed-letter").innerHTML = guessList;
+}
+
+// function to update results
+function updateResults() {
+  document.getElementById("num-win").innerHTML = numWin;
+  document.getElementById("num-loss").innerHTML = numLoss;
+  document.getElementById("guess-left").innerHTML = guessLeft;
+  document.getElementById("guessed-letter").innerHTML = guessList;
+}
+
+// Generate a randomized letter pick by computer
+var computerLetter = validLetter[Math.floor(Math.random() * validLetter.length)];
 
 // This function checks if the guessed letter is valid or not
 function isLetterValid(letterStr) {
@@ -13,26 +30,46 @@ function isLetterValid(letterStr) {
     return true;
   } else {
     return false;
-  }
-  // check if letter is duplicated
+  } 
 }
-
 
 // This function checks if the guessed letter is valid using isLetterValid() and appends it to the guessList to display
 function submitLetter() {
+  
   var letterStr = document.getElementById("letter").value.toLowerCase();
-  if (isLetterValid(letterStr)) {
+  // Check if letter is a valid letter and if it exist in the current guess list
+  if (isLetterValid(letterStr) && !(guessList.includes(letterStr))) {
       guessList.push(letterStr);
+      
   } else {
-      alert("Not a Valid Letter. Submit a valid letter");
+      alert("The letter selected is either invalid or already exist in the guessed list");
   }
-  document.getElementById("guessed-letter").innerHTML = guessList;  
-  // loop through guessLeft as long as it is greater than 0
-    // if the letterStr is the same as computerGuess then return numWin +=1
-    // else if letterStr is not the same as computerGuess then guessLeft -= 1
-  // when loop is out and guessLeft = 0 return numLoss and reset the values
-
-
+  //write the guessed letter into HTML page
+  
+  document.getElementById("guessed-letter").innerHTML = guessList;
+    
+  document.getElementById("test-console").innerHTML = computerLetter;
+  
+  // if the letterStr is the same as computerGuess then return numWin +=1
+  // else letterStr is not the same as computerGuess then guessLeft -= 1
+  if (guessLeft > 0) {
+    if (letterStr === computerLetter) {
+      numWin += 1;
+      nextGame();
+      updateResults(); 
+    } else {
+      guessLeft -= 1;
+      document.getElementById("guess-left").innerHTML = guessLeft;  
+    }
+  // when guessLeft = 0 return numLoss and reset the values
+  } else if (guessLeft === 0) {
+    numLoss +=1;
+    nextGame();
+    updateResults() 
+  }
+  console.log("numWin", numWin);
+  console.log("numLoss", numLoss);
+  console.log("guessLeft", guessLeft)
 } 
 
 // This function reset the variables and restart the game
@@ -44,5 +81,6 @@ function resetGame() {
   document.getElementById("num-win").innerHTML = numWin;
   document.getElementById("num-loss").innerHTML = numLoss;
   document.getElementById("guess-left").innerHTML = guessLeft;
-  document.getElementById("guessed-letter").innerHTML = guessList;  
+  document.getElementById("guessed-letter").innerHTML = guessList;
+  computerLetter = validLetter[Math.floor(Math.random() * validLetter.length)];
 } 
