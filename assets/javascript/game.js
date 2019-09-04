@@ -9,6 +9,7 @@ var guessList = [];
 function nextGame () {
   guessLeft = 10;
   guessList = [];
+  computerLetter = validLetter[Math.floor(Math.random() * validLetter.length)];
   document.getElementById("guess-left").innerHTML = guessLeft;
   document.getElementById("guessed-letter").innerHTML = guessList;
 }
@@ -60,6 +61,8 @@ function submitLetter() {
     } else {
       guessLeft -= 1;
       document.getElementById("guess-left").innerHTML = guessLeft;  
+      updateResults();
+      /////////////////////At the last guessLeft and the letterStr is still not equal to computerLetter, the numLoss is supposed to display +1./////////////////////
     }
   // when guessLeft = 0 return numLoss and reset the values
   } else if (guessLeft === 0) {

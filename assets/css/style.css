@@ -1,0 +1,6 @@
+h1 {
+    font-family: 'Dancing Script', cursive;
+}
+.container {
+    display: flex;
+}
