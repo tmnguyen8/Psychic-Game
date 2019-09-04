@@ -1,6 +1,15 @@
+* {
+    border: 1px solid red;
+}
 h1 {
     font-family: 'Dancing Script', cursive;
 }
-.container {
+.flex-container {
     display: flex;
+    flex-direction: row;
+}
+.header{
+    width: 70%;
+    align-content: center;
+    
 }
