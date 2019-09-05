@@ -43,7 +43,7 @@ function submitLetter() {
       guessList.push(letterStr);
       
   } else {
-      alert("The letter selected is either invalid or already exist in the guessed list");
+      alert("The letter selected is either invalid or already existed in the guessed list");
   }
   //write the guessed letter into HTML page
   
