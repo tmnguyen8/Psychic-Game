@@ -7,6 +7,9 @@ var numWin = 0;
 var numLoss = 0;
 var guessLeft = 10;
 var guessList = [];
+// Generate a randomized letter pick by computer
+var computerLetter = validLetter[Math.floor(Math.random() * validLetter.length)];
+console.log(computerLetter)
 
 // FUNCTIONS
 // ************************************************************
@@ -27,9 +30,6 @@ function updateResults() {
   document.getElementById("guessed-letter").innerHTML = guessList;
 }
 
-// Generate a randomized letter pick by computer
-var computerLetter = validLetter[Math.floor(Math.random() * validLetter.length)];
-
 // This function checks if the guessed letter is valid or not
 function isLetterValid(letterStr) {
   if (validLetter.includes(letterStr)) {
@@ -41,7 +41,7 @@ function isLetterValid(letterStr) {
 
 // This function checks if the guessed letter is valid using isLetterValid() and appends it to the guessList to display
 function submitLetter() {
-  
+  console.log(computerLetter)
   var letterStr = document.getElementById("letter").value.toLowerCase();
   // Check if letter is a valid letter and if it exist in the current guess list
 
@@ -61,22 +61,22 @@ function submitLetter() {
   // if the letterStr is the same as computerGuess then return numWin +=1
   if (letterStr === computerLetter) {
     numWin++;
+    alert(`You won! Correct letter is ${computerLetter}`);
     nextGame();
     updateResults(); 
-    alert(`You won! Correct letter is ${computerLetter}`);
+    
   // when guessLeft = 0 return numLoss and reset the values
   } else if (guessLeft === 0) {
     numLoss++; 
+    alert(`You lost! Correct letter is ${computerLetter}`);
     nextGame();
     updateResults();
-    alert(`You lost! Correct letter is ${computerLetter}`);
+    
   }
 
   // testing & debugging
-  // console.log("numWin", numWin);
-  // console.log("numLoss", numLoss);
-  // console.log("guessLeft", guessLeft);
-  // console.log("computerLetter", computerLetter);
+  console.log(`numWin: ${numWin} | numLoss: ${numLoss} | guessLeft: ${guessLeft} | computerLetter: ${computerLetter} | guessList: ${guessList}`)
+
 } 
 
 // This function reset the variables and restart the game
@@ -89,7 +89,7 @@ function resetGame() {
   document.getElementById("num-loss").innerHTML = numLoss;
   document.getElementById("guess-left").innerHTML = guessLeft;
   document.getElementById("guessed-letter").innerHTML = guessList;
-  computerLetter = validLetter[Math.floor(Math.random() * validLetter.length)];
+  // computerLetter = validLetter[Math.floor(Math.random() * validLetter.length)];
 } 
 
 // When Enter key is pressed, it executes the submitLetter()
