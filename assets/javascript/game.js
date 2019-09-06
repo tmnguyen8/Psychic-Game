@@ -9,7 +9,6 @@ var guessLeft = 10;
 var guessList = [];
 // Generate a randomized letter pick by computer
 var computerLetter = validLetter[Math.floor(Math.random() * validLetter.length)];
-console.log(computerLetter)
 
 // FUNCTIONS
 // ************************************************************
