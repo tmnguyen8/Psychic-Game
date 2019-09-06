@@ -7,7 +7,7 @@
     <link href="assets/css/reset.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="assets/javascript/game.js" type="text/javascript"></script>
+    
     <title>Psychic Game</title>
 </head>
 
@@ -21,27 +21,33 @@
             </div>
             <br>
             <div class="buttons align-self-center">
-                <button class="input-button" type="button" onclick="submitLetter()">Submit</button>
-                <button class="input-button" type="button" onclick="resetGame()">Reset Game</button>
+                <button class="input-button" id="submit-button" type="button" onclick="submitLetter()">Submit</button>
+                <button class="input-button" id="reset-button" type="button" onclick="resetGame()">Reset Game</button>
             </div>
         </form>
         <div class="col-sm-4 offset-sm-2">
             <div class="row">
                 <div class="score col-sm-5">
-                    <h3 >Wins: </h3><p style="font-size:4vw;" id="num-win"></p>
+                    <h3>Wins: </h3><span style="font-size:4vw;" id="num-win">0</span>
                 </div>
                 
                 <div class="score col-sm-5 offset-sm-2">
-                    <h3 >Loss: </h3><p style="font-size:4vw;" id="num-loss"></p>
+                    <h3 >Loss: </h3><span style="font-size:4vw;" id="num-loss">0</span>
                 </div>
             </div>
         </div>
         
         <div class="col-sm-10 offset-sm-1 my-tracker">
-            <div class="col-sm-12"><h3>Guessed Left: </h3><p id="guess-left"></p></div>
-            <div class="col-sm-12"><h3><h3>Your Guesses so far: </h3><p  id="guessed-letter"></p></div>
-            <div class="col-sm-12"></div><h3>Test: </h3><p id="test-console"></p></div>
-        </div>
+            <div class="col-sm-12">
+                <h3>Guessed Left: </h3><span id="guess-left">10</span>
+            </div>
+            <div class="col-sm-12">
+                <h3>Your Guesses so far: </h3><span  id="guessed-letter">None</span>
+            </div>
+        </div> 
+    
     </div> 
+
+    <script src="assets/javascript/game.js" type="text/javascript"></script>
 </body>
 </html>

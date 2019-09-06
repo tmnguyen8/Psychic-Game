@@ -1,3 +1,5 @@
+// This is the first version of Javascript for the Psychic Game
+// ************************************************************
 // Defines the variables
 var validLetter = "abcdefghijklmnopqrstuvwxyz";
 var numWin = 0;
@@ -34,11 +36,14 @@ function isLetterValid(letterStr) {
   } 
 }
 
+
+
 // This function checks if the guessed letter is valid using isLetterValid() and appends it to the guessList to display
 function submitLetter() {
   
   var letterStr = document.getElementById("letter").value.toLowerCase();
   // Check if letter is a valid letter and if it exist in the current guess list
+
   if (isLetterValid(letterStr) && !(guessList.includes(letterStr))) {
       guessList.push(letterStr);
       
@@ -49,30 +54,31 @@ function submitLetter() {
   
   document.getElementById("guessed-letter").innerHTML = guessList;
     
-  document.getElementById("test-console").innerHTML = computerLetter;
   
   // if the letterStr is the same as computerGuess then return numWin +=1
   // else letterStr is not the same as computerGuess then guessLeft -= 1
   if (guessLeft > 0) {
     if (letterStr === computerLetter) {
-      numWin += 1;
+      numWin++;
       nextGame();
       updateResults(); 
     } else {
-      guessLeft -= 1;
+      guessLeft--;
       document.getElementById("guess-left").innerHTML = guessLeft;  
       updateResults();
       /////////////////////At the last guessLeft and the letterStr is still not equal to computerLetter, the numLoss is supposed to display +1./////////////////////
     }
   // when guessLeft = 0 return numLoss and reset the values
   } else if (guessLeft === 0) {
-    numLoss +=1;
+    numLoss++;
+    document.getElementById("num-loss").innerHTML = numLoss;  
     nextGame();
     updateResults() 
   }
   console.log("numWin", numWin);
   console.log("numLoss", numLoss);
-  console.log("guessLeft", guessLeft)
+  console.log("guessLeft", guessLeft);
+  console.log("computerLetter", computerLetter);
 } 
 
 // This function reset the variables and restart the game
