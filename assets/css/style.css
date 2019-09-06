@@ -5,7 +5,7 @@
 
 .header{
     width: 100%;
-    background-image: url("/assets/images/body-bg.jpg");
+    background-image: url("assets/images/body-bg.jpg");
     border-bottom: 1px solid rgba(70, 102, 104, 0.3);
 }
 .header-overlay {
