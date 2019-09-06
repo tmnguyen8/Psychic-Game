@@ -21,19 +21,25 @@
     font-size:1.5vw;
     background-color: rgba(19, 95, 156, 0.4);
     border: 1px solid rgb(92, 92, 92);
-    padding: 20px;
-    height: 200px;
-    margin: 20px 0;
+    padding: 10px;
+    height: 250px;
+    margin: 20px 0;  
+    display: table;
 
 }
+
 .my-input {
-    display: inline-block;
-    vertical-align: middle;
     width: 100%;
+    text-align: center;
+    margin: 1px 0;   
+}
+#letter {
+    border: 1px solid rgb(92, 92, 92);
+    width: 80%;
 }
 
 .score {
-    height: 200px;
+    height: 250px;
     margin: 20px 0;
     background-color: rgba(19, 95, 156, 0.4);
     border: 1px solid rgb(70, 102, 104);

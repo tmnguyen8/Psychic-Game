@@ -91,3 +91,10 @@ function resetGame() {
   document.getElementById("guessed-letter").innerHTML = guessList;
   computerLetter = validLetter[Math.floor(Math.random() * validLetter.length)];
 } 
+
+// When Enter key is pressed, it executes the submitLetter()
+function runScript(event) {
+  if (event.keyCode === 13) {  //checks whether the pressed key is "Enter"
+      // submitLetter();
+  }
+};
