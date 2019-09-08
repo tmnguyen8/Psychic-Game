@@ -40,7 +40,7 @@ function isLetterValid(letterStr) {
 
 // This function checks if the guessed letter is valid using isLetterValid() and appends it to the guessList to display
 function submitLetter() {
-  console.log(computerLetter)
+  // console.log(computerLetter)
   var letterStr = document.getElementById("letter").value.toLowerCase();
   // Check if letter is a valid letter and if it exist in the current guess list
 
@@ -90,10 +90,17 @@ function resetGame() {
   document.getElementById("guessed-letter").innerHTML = guessList;
   // computerLetter = validLetter[Math.floor(Math.random() * validLetter.length)];
 } 
-
+// *********************************************************
 // When Enter key is pressed, it executes the submitLetter()
-function runScript(event) {
-  if (event.keyCode === 13) {  //checks whether the pressed key is "Enter"
-      // submitLetter();
+
+// Execute a function when the user releases a key on the keyboard
+document.addEventListener("keyup", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // execute this function when "Enter" key is pressed
+    alert("Please use the submit button");
+
   }
-};
+});
