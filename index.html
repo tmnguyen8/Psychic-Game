@@ -14,18 +14,18 @@
 <body>
     <h1 style="font-size:4vw;" class="header"><div class="header-overlay"> Guess a Letter Game</div></h1>
     <div class="row main-container">
-        <form class="col-sm-4 offset-sm-1 my-form" autocomplete="off">
+        <div class="col-sm-4 offset-sm-1 my-form" >
             <div class="my-input">
                 <h5>Enter a letter and click the Submit button: </h5>
                 <br>
-                <input type="text" id="letter">
+                <input type="text" id="letter" autocomplete="off" value="">
             </div>
             <br>
             <div class="buttons align-self-center">
                 <button class="input-button btn btn-primary" id="submit-button" type="button" onclick="submitLetter()">Submit</button>
                 <button class="input-button btn btn-primary" id="reset-button" type="buton" onclick="resetGame()">Reset Game</button>
             </div>
-        </form>
+        </div>
         <div class="col-sm-4 offset-sm-2">
             <div class="row">
                 <div class="score col-sm-5">
